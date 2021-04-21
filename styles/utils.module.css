@@ -45,8 +45,30 @@
 
 .listItem {
   margin: 0 0 1.25rem;
+  background-color: white;
+  padding: 1rem 1.5rem;
 }
 
 .lightText {
   color: #999;
+}
+
+.gamesList {
+  width: 100%;
+  padding-left: 0px;
+  list-style: circle;
+}
+.gamesList li {
+  font-size: 3rem;
+  display: block;
+  text-align: left;
+}
+
+.blogText {
+  background-color: white;
+  padding: 1rem;
+}
+
+.blogText h1 {
+  text-decoration: underline;
 }

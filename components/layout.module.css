@@ -23,3 +23,17 @@
 .backToHome {
   margin: 3rem 0 0;
 }
+
+.navigator {
+  width: 100%;
+  border: 1px solid black;
+  background-color: rgba(160, 160, 160, 0.685);
+  text-align: center;
+}
+
+.navigator li {
+  display: inline;
+  text-decoration: none;
+  padding-right: 1rem;
+  justify-content: center;
+}

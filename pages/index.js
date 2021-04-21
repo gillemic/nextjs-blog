@@ -18,7 +18,6 @@ export default function Home({ allPostsData }) {
   return (
     <Layout home>
       <Head>Welcome</Head>
-      <section className={utilStyles.headingMd}>Home</section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog Posts</h2>
         <ul className={utilStyles.list}>

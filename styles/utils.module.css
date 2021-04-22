@@ -62,6 +62,8 @@
   font-size: 3rem;
   display: block;
   text-align: left;
+  background-color: white;
+  padding-left: 1rem;
 }
 
 .blogText {

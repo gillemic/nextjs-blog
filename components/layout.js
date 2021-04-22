@@ -10,6 +10,7 @@ export default function Layout({ children, home }) {
   return (
     <div className={styles.container}>
       <Head>
+        <title>Michael Gillett's Blog</title>
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"

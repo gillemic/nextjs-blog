@@ -15,7 +15,6 @@ export default function Games(props) {
           <li><Link href=""><a>TBD</a></Link></li>
           <li><Link href=""><a>TBD</a></Link></li>
         </ul>
-        
       </section>
     </Layout>
   )

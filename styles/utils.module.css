@@ -74,3 +74,8 @@
 .blogText h1 {
   text-decoration: underline;
 }
+
+.aboutBlock {
+  background-color: white;
+  padding: 1rem;
+}

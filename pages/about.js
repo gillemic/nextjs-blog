@@ -7,7 +7,7 @@ export default function About(props) {
       <Head>Welcome</Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>About</h2>
-        <p className={utilStyles.aboutBlock}>
+        <p className={utilStyles.blogText}>
           My name is Michael Gillett and I currently live in the Portland metropolitan area. I graduated high school in 2014 and decided that I wanted
           to learn to develop software as a career, just like my uncle does. I went to Oregon State University and graduated with a Computer Science
           degree in 2019.

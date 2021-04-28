@@ -11,7 +11,7 @@ export default function Games(props) {
         <h2 className={utilStyles.headingLg}>Games List</h2>
         <ul className={utilStyles.gamesList}>
           <li><Link href="games/tetris"><a>Tetris</a></Link></li>
-          <li><Link href=""><a>Tic Tac Toe</a></Link></li>
+          <li><Link href="games/tic-tac-toe"><a>Tic Tac Toe</a></Link></li>
           <li><Link href=""><a>TBD</a></Link></li>
           <li><Link href=""><a>TBD</a></Link></li>
         </ul>

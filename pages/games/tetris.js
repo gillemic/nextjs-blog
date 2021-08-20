@@ -129,10 +129,10 @@ class Tetris extends React.Component {
    * and executes handleBoardUpdate() set to 'down' method during each interval
    * @memberof Tetris
    */
-   componentWillMount() {
+   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyPress);
 
-    let timerId
+    let timerId;
 
     timerId = window.setInterval(
       () => this.handleBoardUpdate('down'),

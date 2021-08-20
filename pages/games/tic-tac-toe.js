@@ -9,10 +9,10 @@ class TicTacToe extends React.Component {
 
     let field = []
   
-    for (let y = 0; y < 20; y++) {
+    for (let y = 0; y < 3; y++) {
       let row = []
 
-      for (let x = 0; x < 14; x++) {
+      for (let x = 0; x < 3; x++) {
         row.push(0)
       }
 
@@ -22,11 +22,10 @@ class TicTacToe extends React.Component {
     this.state = {
       field: field,
       gameOver: false,
-      pieces: ["x", "o"]
+      pieces: ["x", "o"],
+      playerTurn: 1
     }
   }
-
-
 
   render() {
     return(

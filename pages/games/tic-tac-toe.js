@@ -1,46 +1,120 @@
 import Head from 'next/head'
 import Layout from '../../components/layout'
-import utilStyles from '../../styles/utils.module.css'
+import tttStyles from '../../styles/tictactoe.module.css'
 import React from 'react'
 
-class TicTacToe extends React.Component {
-  constructor(props) {
-    super(props)
+function Square(props) {
+  return (
+    <button className={tttStyles.square} onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
+}
 
-    let field = []
-  
-    for (let y = 0; y < 3; y++) {
-      let row = []
-
-      for (let x = 0; x < 3; x++) {
-        row.push(0)
-      }
-
-      field.push(row)
-    } 
-
-    this.state = {
-      field: field,
-      gameOver: false,
-      pieces: ["x", "o"],
-      playerTurn: 1
+function calculateWinner(squares) {
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
     }
+  }
+  return null;
+}
+
+class Board extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      squares: Array(9).fill(null),
+      xIsNext: true,
+    }
+    this.resetBoard = this.resetBoard.bind(this);
+  }
+
+  handleClick(i) {
+    const squares = this.state.squares.slice();
+    if (calculateWinner(squares) || squares[i]) {
+      return;
+    }
+    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    this.setState({ 
+      squares: squares,
+      xIsNext: !this.state.xIsNext,
+    });
+  }
+
+  renderSquare(i) {
+    return <Square value={this.state.squares[i]} onClick={() => this.handleClick(i)}/>;
+  }
+
+  resetBoard() {
+    this.setState({
+      squares: Array(9).fill(null),
+      xIsNext: true,
+    });
   }
 
   render() {
-    return(
+    // const status = 'Next player: ' + (this.state.xIsNext ? 'X': 'O');
+    const winner = calculateWinner(this.state.squares);
+    let status;
+    if (winner) {
+      status = 'Winner: ' + winner;
+    }
+    else {
+      status = 'Next player: ' + (this.state.xIsNext ? 'X': 'O');
+    }
+    
+    return (
+      <div className={tttStyles.board}>
+        <div className={tttStyles.status}>{status}</div>
+        <div className={tttStyles.board_row}>
+          {this.renderSquare(0)}
+          {this.renderSquare(1)}
+          {this.renderSquare(2)}
+        </div>
+        <div className={tttStyles.board_row}>
+          {this.renderSquare(3)}
+          {this.renderSquare(4)}
+          {this.renderSquare(5)}
+        </div>
+        <div className={tttStyles.board_row}>
+          {this.renderSquare(6)}
+          {this.renderSquare(7)}
+          {this.renderSquare(8)}
+        </div>
+        <button className={tttStyles.reset} onClick={this.resetBoard}>Reset</button>
+      </div>
+    );
+  }
+}
+
+class TicTacToe extends React.Component {
+  render() {
+    return (
       <Layout>
-        <Head>
-          <title>Tic Tac Toe</title>
-        </Head>
-        <section>
-        <h1>Tic Tac Toe</h1>
-          <div className="tictactoe">
-            <p>Board</p>
+        <Head>Tic Tac Toe</Head>
+        <div className={tttStyles.game}>
+          <div className={tttStyles.game_board}>
+            <Board />
           </div>
-        </section>
+          <div className="game-info">
+            <div>{/* status */}</div>
+            <ol>{/* TODO */}</ol>
+          </div>
+        </div>
       </Layout>
-    )
+    );
   }
 }
 

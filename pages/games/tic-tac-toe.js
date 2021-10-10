@@ -4,9 +4,10 @@ import tttStyles from '../../styles/tictactoe.module.css'
 import React from 'react'
 
 function Square(props) {
+  const squareStyle = props.value === 'X' ? tttStyles.square1 : tttStyles.square2;
   return (
-    <button className={tttStyles.square} onClick={props.onClick}>
-      {props.value}
+    <button className={squareStyle} onClick={props.onClick}>
+      {props.value ?? ' '}
     </button>
   );
 }
@@ -70,6 +71,9 @@ class Board extends React.Component {
     let status;
     if (winner) {
       status = 'Winner: ' + winner;
+    }
+    else if (this.state.squares.every( e => e )) {
+      status = 'Tie!';
     }
     else {
       status = 'Next player: ' + (this.state.xIsNext ? 'X': 'O');

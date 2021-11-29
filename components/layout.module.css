@@ -1,7 +1,7 @@
 .container {
   max-width: 40rem;
   padding: 0 1rem;
-  margin: 3rem auto 6rem;
+  margin: 3rem auto 3rem;
 }
 
 .header {
@@ -37,8 +37,8 @@
 
 .navigator li {
   display: inline;
-  text-decoration: none;
-  padding-right: 1rem;
+  font-weight: bold;
+  padding: 0.5rem;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
